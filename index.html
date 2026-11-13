@@ -23,6 +23,10 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         html, body {
             margin: 0;
             min-height: 100%;
@@ -202,6 +206,69 @@
             min-height: 440px;
         }
 
+        .content-section {
+            margin-top: 32px;
+            padding-top: 20px;
+        }
+
+        .section-heading {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            letter-spacing: -0.04em;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .feature-card, .pipeline-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--card-border);
+            border-radius: 18px;
+            padding: 22px;
+            box-shadow: 0 15px 35px rgba(15, 23, 42, 0.25);
+        }
+
+        .feature-card h3, .pipeline-card h3 {
+            margin: 0 0 12px;
+            font-size: 1.3rem;
+        }
+
+        .feature-card p, .pipeline-card p {
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.7;
+        }
+
+        .pipeline-steps {
+            display: grid;
+            gap: 14px;
+            margin-top: 18px;
+        }
+
+        .pipeline-step {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(15, 23, 42, 0.55);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 12px 16px;
+        }
+
+        .step-number {
+            width: 30px;
+            height: 30px;
+            display: inline-grid;
+            place-items: center;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            font-weight: 700;
+        }
+
         .dashboard {
             position: relative;
             width: min(100%, 420px);
@@ -315,14 +382,14 @@
             </div>
 
             <nav class="nav" aria-label="Main navigation">
-                <a href="#">Home</a>
-                <a href="#">Features</a>
-                <a href="#">Pipeline</a>
-                <a href="#">Contact</a>
+                <a href="#home">Home</a>
+                <a href="#features">Features</a>
+                <a href="#pipeline">Pipeline</a>
+                <a href="#contact">Contact</a>
             </nav>
         </header>
 
-        <main class="hero">
+        <main id="home" class="hero">
             <section class="content">
                 <div class="eyebrow">CI/CD pipeline</div>
                 <h1>Build faster. Ship <span class="highlight">smarter.</span></h1>
@@ -332,8 +399,8 @@
                 </p>
 
                 <div class="actions">
-                    <a class="button button-primary" href="#">Deploy Now</a>
-                    <a class="button button-secondary" href="#">See Pipeline</a>
+                    <a class="button button-primary" href="#pipeline">Deploy Now</a>
+                    <a class="button button-secondary" href="#features">See Features</a>
                 </div>
 
                 <div class="stats" aria-label="Statistics">
@@ -384,6 +451,43 @@
                 </div>
             </aside>
         </main>
+
+        <section id="features" class="content-section">
+            <h2 class="section-heading">Core Features</h2>
+            <div class="feature-grid">
+                <article class="feature-card">
+                    <h3>Continuous Integration</h3>
+                    <p>Automatically build and validate code changes as soon as they are pushed to the repository.</p>
+                </article>
+                <article class="feature-card">
+                    <h3>Automated Testing</h3>
+                    <p>Run unit, integration, and deployment checks with minimal manual effort and fewer release risks.</p>
+                </article>
+                <article class="feature-card">
+                    <h3>Fast Delivery</h3>
+                    <p>Streamline release processes so your team can deploy updates confidently and frequently.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="pipeline" class="content-section">
+            <h2 class="section-heading">Deployment Pipeline</h2>
+            <div class="pipeline-card">
+                <div class="pipeline-steps">
+                    <div class="pipeline-step"><span class="step-number">1</span><p>Fetch the latest code from the repository.</p></div>
+                    <div class="pipeline-step"><span class="step-number">2</span><p>Build and compile the project for validation.</p></div>
+                    <div class="pipeline-step"><span class="step-number">3</span><p>Run automated tests and quality checks.</p></div>
+                    <div class="pipeline-step"><span class="step-number">4</span><p>Deploy the app to the target environment.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="content-section">
+            <h2 class="section-heading">Ready to launch?</h2>
+            <div class="pipeline-card" style="text-align:center;">
+                <p>Connect your Jenkins workflow and automate the next release with confidence.</p>
+            </div>
+        </section>
     </div>
 </body>
 </html>
